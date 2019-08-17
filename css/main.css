@@ -4,27 +4,48 @@
 
 @keyframes shutter {
 	0% {
+		-webkit-transform: scaleY(1);
+		-ms-transform: scaleY(1);
+		-o-transform: scaleY(1);
 		transform: scaleY(1);
 	}
+
 	100% {
+		-webkit-transform: scaleY(0);
+		-ms-transform: scaleY(0);
+		-o-transform: scaleY(0);
 		transform: scaleY(0);
 	}
 }
 
 @keyframes revealText {
 	0% {
+		-webkit-transform: scaleX(1);
+		-ms-transform: scaleX(1);
+		-o-transform: scaleX(1);
 		transform: scaleX(1);
 	}
+
 	100% {
+		-webkit-transform: scaleX(0);
+		-ms-transform: scaleX(0);
+		-o-transform: scaleX(0);
 		transform: scaleX(0);
 	}
 }
 
 @keyframes revealTextReverse {
 	0% {
+		-webkit-transform: scaleX(0);
+		-ms-transform: scaleX(0);
+		-o-transform: scaleX(0);
 		transform: scaleX(0);
 	}
+
 	100% {
+		-webkit-transform: scaleX(1);
+		-ms-transform: scaleX(1);
+		-o-transform: scaleX(1);
 		transform: scaleX(1);
 	}
 }
@@ -40,11 +61,35 @@
 
 @keyframes fadeInBottom {
 	0% {
+		-webkit-transform: translateY(50px);
+		-ms-transform: translateY(50px);
+		-o-transform: translateY(50px);
 		transform: translateY(50px);
 		opacity: 0;
 	}
 	100% {
-		transform: translateY(0d);
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInRight {
+	0% {
+		-webkit-transform: translateX(150px);
+		-ms-transform: translateX(150px);
+		-o-transform: translateX(150px);
+		transform: translateX(150px);
+		opacity: 0;
+	}
+
+	100% {
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-o-transform: translateX(0);
+		transform: translateX(0);
 		opacity: 1;
 	}
 }
@@ -64,6 +109,7 @@ body {
 	background: #ffffff;
 	display: grid;
 	justify-content: center;
+	-ms-align-items: center;
 	align-items: center;
 	overflow: hidden;	
 }
@@ -86,8 +132,14 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	-webkit-transform-origin: top;
+	-moz-transform-origin: top;
+	-ms-transform-origin: top;
+	-o-transform-origin: top;
 	transform-origin: top;
-	animation: shutter 1s ease-in-out forwards;
+	-webkit-animation: shutter 1s ease-in-out forwards;;
+	-o-animation: shutter 1s ease-in-out forwards;;
+	animation: shutter 1s ease-in-out forwards;;
 }
 
 .shutter.black {
@@ -97,6 +149,8 @@ body {
 
 .shutter.blue {
 	background: #03a9f4;
+	-webkit-animation-delay: 1s;
+	-o-animation-delay: 1s;
 	animation-delay: 1s;
 	z-index: 1;
 }
@@ -105,14 +159,20 @@ body {
 
 header {
 	position: absolute;
-	top: 0;
-	left: 20%;
+	top: 5%;
+	left: 0;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
 	width: 100%;
 	height: 80px;
 	padding: 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	z-index: 1015;	
 }
@@ -121,21 +181,78 @@ header {
 /*    Стили логотипа    */
 
 .logo {
+	position: absolute;
+	top: 0;
+	left: 10%;
 	opacity: 0;
 	margin: 0;
 	padding: 0;
-	font-size: 2em;
+	font-size: 3em;
 	text-transform: uppercase;
+	line-height: 80px;
+	-webkit-animation: fadeIn 0.5s linear forwards;
+	-o-animation: fadeIn 0.5s linear forwards;
 	animation: fadeIn 0.5s linear forwards;
-	animation-delay: 2.5s;	
+	-webkit-animation-delay: 2.5s;
+	-o-animation-delay: 2.5s;
+	animation-delay: 2.5s;
 }
 
-/*    Стили основног контента    */
+/*    Стили главного меню    */
+.nav {
+	position: absolute;
+	top: 0;
+	right: 10%;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	line-height: 80px;	
+	z-index: 1020;
+}
+
+.nav__item {
+	opacity: 0;
+	list-style: none;
+	margin: 0 10px;
+	-webkit-animation: fadeInRight 0.5s linear forwards;
+	-o-animation: fadeInRight 0.5s linear forwards;
+	animation: fadeInRight 0.5s linear forwards;
+	-webkit-animation-delay: 4s;
+	-o-animation-delay: 4s;
+	animation-delay: 4s;
+}
+
+.nav__item:last-child {
+	margin-right: 0;
+}
+
+.nav__link {
+	text-decoration: none;
+	font-size: 1.2em;
+	color: #000;
+	padding: 5px 10px;
+	letter-spacing: 2px;
+}
+
+.nav__link.active,
+.nav__link:hover {
+	background: #000;
+	color: #fff;
+}
+
+/*    Стили основного контента    */
 
 main {
 	position: absolute;
 	top: 50%;
 	left: 20%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
 	max-width: 800px;
 	margin: 0;
@@ -144,10 +261,14 @@ main {
 
 .banner__title {
 	font-size: 6em;
+	-webkit-animation-delay: 2s;
+	-o-animation-delay: 2s;
 	animation-delay: 2s;
 }
 .banner__heading {
 	font-size: 3em;
+	-webkit-animation-delay: 3s;
+	-o-animation-delay: 3s;
 	animation-delay: 3s;
 }
 
@@ -158,7 +279,12 @@ main {
 	display: inline-block;
 	transform-origin: left;
 	text-transform: uppercase;
+	-webkit-transform: scaleX(0);
+	-ms-transform: scaleX(0);
+	-o-transform: scaleX(0);
 	transform: scaleX(0);
+	-webkit-animation: revealTextReverse 1s ease-in-out forwards;
+	-o-animation: revealTextReverse 1s ease-in-out forwards;
 	animation: revealTextReverse 1s ease-in-out forwards;
 }
 
@@ -170,11 +296,21 @@ main {
 	background: #000000;
 	width: 100%;
 	height: 100%;
+	-webkit-transform-origin: right;
+	-moz-transform-origin: right;
+	-ms-transform-origin: right;
+	-o-transform-origin: right;
 	transform-origin: right;
+	-webkit-animation: revealText 1s ease-in-out forwards;
+	-o-animation: revealText 1s ease-in-out forwards;
 	animation: revealText 1s ease-in-out forwards;
+	-webkit-animation-delay: 3s;
+	-o-animation-delay: 3s;
 	animation-delay: 3s;
 }
 .banner__heading::before {
+	-webkit-animation-delay: 4s;
+	-o-animation-delay: 4s;
 	animation-delay: 4s;
 }
 
@@ -182,7 +318,11 @@ main {
 	opacity: 0;
 	font-weight: 400;
 	font-size: 1.2em;
+	-webkit-animation: fadeIn 1s linear forwards;
+	-o-animation: fadeIn 1s linear forwards;
 	animation: fadeIn 1s linear forwards;
+	-webkit-animation-delay: 5s;
+	-o-animation-delay: 5s;
 	animation-delay: 5s;
 }
 
@@ -198,7 +338,11 @@ main {
 	text-decoration: none;
 	font-size: 1.2em;
 	letter-spacing: 1px;
+	-webkit-animation: fadeInBottom 0.5s linear forwards;
+	-o-animation: fadeInBottom 0.5s linear forwards;
 	animation: fadeInBottom 0.5s linear forwards;
+	-webkit-animation-delay: 5.5s;
+	-o-animation-delay: 5.5s;
 	animation-delay: 5.5s;
 	transition: color, background, border .5s ease-in-out;
 }
@@ -214,8 +358,15 @@ main {
 	position: absolute;
 	right: 20%;
 	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
+	-webkit-animation: fadeIn 1s linear forwards;
+	-o-animation: fadeIn 1s linear forwards;
 	animation: fadeIn 1s linear forwards;
+	-webkit-animation-delay: 6s;
+	-o-animation-delay: 6s;
 	animation-delay: 6s;
 	z-index: 100;	
 }
