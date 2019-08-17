@@ -1,5 +1,16 @@
 /*font-family: 'PT Sans Narrow', sans-serif;*/
 
+/*    Анимация    */
+
+@keyframes shutter {
+	0% {
+		transform: scaleY(1);
+	}
+	100% {
+		transform: scaleY(0);
+	}
+}
+
 /*    Стили страницы    */
 
 body {
@@ -7,4 +18,37 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'PT Sans Narrow', sans-serif;
+}
+
+/*    Стили затвора    */
+
+.enter {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	z-index: 10000;
+}
+
+.shutter {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform-origin: top;
+	animation: shutter 1s ease-in-out forwards;
+}
+
+.shutter.black {
+	background: #000;
+	z-index: 2;
+}
+
+.shutter.blue {
+	background: #03a9f4;
+	animation-delay: 1s;
+	z-index: 1;
 }
