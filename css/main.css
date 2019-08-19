@@ -1,51 +1,33 @@
 /*font-family: 'PT Sans Narrow', sans-serif;*/
 
-/*    Анимация    */
+/*    Анимация   */
 
 @keyframes shutter {
 	0% {
-		-webkit-transform: scaleY(1);
-		-ms-transform: scaleY(1);
-		-o-transform: scaleY(1);
 		transform: scaleY(1);
 	}
 
 	100% {
-		-webkit-transform: scaleY(0);
-		-ms-transform: scaleY(0);
-		-o-transform: scaleY(0);
 		transform: scaleY(0);
 	}
 }
 
 @keyframes revealText {
 	0% {
-		-webkit-transform: scaleX(1);
-		-ms-transform: scaleX(1);
-		-o-transform: scaleX(1);
 		transform: scaleX(1);
 	}
 
 	100% {
-		-webkit-transform: scaleX(0);
-		-ms-transform: scaleX(0);
-		-o-transform: scaleX(0);
 		transform: scaleX(0);
 	}
 }
 
 @keyframes revealTextReverse {
 	0% {
-		-webkit-transform: scaleX(0);
-		-ms-transform: scaleX(0);
-		-o-transform: scaleX(0);
 		transform: scaleX(0);
 	}
 
 	100% {
-		-webkit-transform: scaleX(1);
-		-ms-transform: scaleX(1);
-		-o-transform: scaleX(1);
 		transform: scaleX(1);
 	}
 }
@@ -54,6 +36,7 @@
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
@@ -67,6 +50,7 @@
 		transform: translateY(50px);
 		opacity: 0;
 	}
+
 	100% {
 		-webkit-transform: translateY(0);
 		-ms-transform: translateY(0);
@@ -94,14 +78,34 @@
 	}
 }
 
-/*    Стили страницы    */
+@keyframes rotate {
+	0% {
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+
+/*    Основные стили страницы    */
 
 body {
-	min-height: 100vh;
 	margin: 0;
 	padding: 0;
+	min-height: 100vh;
 	font-family: 'PT Sans Narrow', sans-serif;
 }
+
 .landing {
 	position: absolute;
 	width: 100%;
@@ -111,10 +115,10 @@ body {
 	justify-content: center;
 	-ms-align-items: center;
 	align-items: center;
-	overflow: hidden;	
+	overflow: hidden;
 }
 
-/*    Стили затвора    */
+/*    Затвор   */
 
 .enter {
 	position: fixed;
@@ -123,7 +127,7 @@ body {
 	right: 0;
 	bottom: 0;
 	pointer-events: none;
-	z-index: 10000;
+	z-index: 100;
 }
 
 .shutter {
@@ -137,72 +141,67 @@ body {
 	-ms-transform-origin: top;
 	-o-transform-origin: top;
 	transform-origin: top;
-	-webkit-animation: shutter 1s ease-in-out forwards;;
-	-o-animation: shutter 1s ease-in-out forwards;;
-	animation: shutter 1s ease-in-out forwards;;
+	-webkit-animation: shutter 1s ease-in-out forwards;
+	-o-animation: shutter 1s ease-in-out forwards;
+	animation: shutter 1s ease-in-out forwards;
 }
 
 .shutter.black {
 	background: #000000;
-	z-index: 2;
+	z-index: 102;
 }
-
-.shutter.blue {
+.shutter.light {
 	background: #03a9f4;
 	-webkit-animation-delay: 1s;
 	-o-animation-delay: 1s;
 	animation-delay: 1s;
-	z-index: 1;
+	z-index: 101;
 }
 
-/*    Стили Хэдера    */
+/*    Стили хэдера    */
 
 header {
 	position: absolute;
-	top: 5%;
+	top: 0;
 	left: 0;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
+	justify-content: space-between;
 	-ms-align-items: center;
 	align-items: center;
 	width: 100%;
 	height: 80px;
-	padding: 0;
+	padding: 0 100px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	z-index: 1015;	
+	z-index: 5;
 }
-
 
 /*    Стили логотипа    */
 
+
 .logo {
-	position: absolute;
-	top: 0;
-	left: 10%;
 	opacity: 0;
 	margin: 0;
 	padding: 0;
 	font-size: 3em;
 	text-transform: uppercase;
-	line-height: 80px;
 	-webkit-animation: fadeIn 0.5s linear forwards;
 	-o-animation: fadeIn 0.5s linear forwards;
 	animation: fadeIn 0.5s linear forwards;
-	-webkit-animation-delay: 2.5s;
-	-o-animation-delay: 2.5s;
-	animation-delay: 2.5s;
+	-webkit-animation-delay: 5s;
+	-o-animation-delay: 5s;
+	animation-delay: 5s;
 }
 
+
 /*    Стили главного меню    */
-.nav {
-	position: absolute;
-	top: 0;
-	right: 10%;
+
+.top-nav {
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -210,39 +209,76 @@ header {
 	display: flex;
 	margin: 0;
 	padding: 0;
-	line-height: 80px;	
-	z-index: 1020;
+	z-index: 5;
 }
 
-.nav__item {
+.top-nav__item {
 	opacity: 0;
 	list-style: none;
 	margin: 0 10px;
 	-webkit-animation: fadeInRight 0.5s linear forwards;
 	-o-animation: fadeInRight 0.5s linear forwards;
 	animation: fadeInRight 0.5s linear forwards;
-	-webkit-animation-delay: 4s;
-	-o-animation-delay: 4s;
-	animation-delay: 4s;
 }
 
-.nav__item:last-child {
+.top-nav__item:nth-child(1),
+.social-nav__item:nth-child(1) {
+	-webkit-animation-delay: 5s;
+	-o-animation-delay: 5s;
+	animation-delay: 5s;
+}
+
+.top-nav__item:nth-child(2),
+.social-nav__item:nth-child(2) {
+	-webkit-animation-delay: 5.25s;
+	-o-animation-delay: 5.25s;
+	animation-delay: 5.25s;
+}
+
+.top-nav__item:nth-child(3),
+.social-nav__item:nth-child(3) {
+	-webkit-animation-delay: 5.5s;
+	-o-animation-delay: 5.5s;
+	animation-delay: 5.5s;
+}
+
+.top-nav__item:nth-child(4),
+.social-nav__item:nth-child(4) {
+	-webkit-animation-delay: 5.75s;
+	-o-animation-delay: 5.75s;
+	animation-delay: 5.75s;
+}
+
+.top-nav__item:nth-child(5) {
+	-webkit-animation-delay: 6s;
+	-o-animation-delay: 6s;
+	animation-delay: 6s;
+}
+
+.top-nav__item:nth-child(6) {
+	-webkit-animation-delay: 6.25s;
+	-o-animation-delay: 6.25s;
+	animation-delay: 6.25s;
+}
+
+.top-nav__item:last-child {
 	margin-right: 0;
 }
 
-.nav__link {
+.top-nav__link {
 	text-decoration: none;
 	font-size: 1.2em;
-	color: #000;
+	color: #000000;
 	padding: 5px 10px;
 	letter-spacing: 2px;
 }
 
-.nav__link.active,
-.nav__link:hover {
-	background: #000;
-	color: #fff;
+.top-nav__link.active,
+.top-nav__link:hover {
+	background: #000000;
+	color: #ffffff;
 }
+
 
 /*    Стили основного контента    */
 
@@ -254,29 +290,19 @@ main {
 	-ms-transform: translateY(-50%);
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
-	max-width: 800px;
-	margin: 0;
-	padding: 0;
+	max-width: 700px;
 }
 
-.banner__title {
-	font-size: 6em;
-	-webkit-animation-delay: 2s;
-	-o-animation-delay: 2s;
-	animation-delay: 2s;
-}
-.banner__heading {
-	font-size: 3em;
-	-webkit-animation-delay: 3s;
-	-o-animation-delay: 3s;
-	animation-delay: 3s;
-}
-
-.banner__title, .banner__heading {
+.main__title,
+.main__heading {
 	position: relative;
 	margin: 0;
 	padding: 0;
 	display: inline-block;
+	-webkit-transform-origin: left;
+	-moz-transform-origin: left;
+	-ms-transform-origin: left;
+	-o-transform-origin: left;
 	transform-origin: left;
 	text-transform: uppercase;
 	-webkit-transform: scaleX(0);
@@ -288,7 +314,21 @@ main {
 	animation: revealTextReverse 1s ease-in-out forwards;
 }
 
-.banner__title::before, .banner__heading::before {
+.main__title {
+	font-size: 6em;
+	-webkit-animation-delay: 2s;
+	-o-animation-delay: 2s;
+	animation-delay: 2s;
+}
+.main__heading {
+	font-size: 3.15em;
+	-webkit-animation-delay: 3s;
+	-o-animation-delay: 3s;
+	animation-delay: 3s;
+}
+
+.main__title::before,
+.main__heading::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -304,17 +344,16 @@ main {
 	-webkit-animation: revealText 1s ease-in-out forwards;
 	-o-animation: revealText 1s ease-in-out forwards;
 	animation: revealText 1s ease-in-out forwards;
-	-webkit-animation-delay: 3s;
-	-o-animation-delay: 3s;
-	animation-delay: 3s;
-}
-.banner__heading::before {
 	-webkit-animation-delay: 4s;
 	-o-animation-delay: 4s;
 	animation-delay: 4s;
 }
 
-.banner__text {
+.main__heading::before {
+	animation-delay: 4s;
+}
+
+.main__text {
 	opacity: 0;
 	font-weight: 400;
 	font-size: 1.2em;
@@ -326,14 +365,14 @@ main {
 	animation-delay: 5s;
 }
 
-.banner__link {
+.main__link {
 	opacity: 0;
 	display: inline-block;
 	margin: 20px 0 0;
 	padding: 10px 20px;
 	border: 3px solid transparent;
 	background: #000000;
-	color: #fff;
+	color: #ffffff;
 	font-weight: 700;
 	text-decoration: none;
 	font-size: 1.2em;
@@ -344,17 +383,17 @@ main {
 	-webkit-animation-delay: 5.5s;
 	-o-animation-delay: 5.5s;
 	animation-delay: 5.5s;
-	transition: color, background, border .5s ease-in-out;
+	transition: color, background, border .75s ease-in-out;
 }
 
-.banner__link:hover {
+.main__link:hover {
 	border: 3px solid #000000;
 	background: #ffffff;
 	color: #000000;
 }
 
+
 .main__img {
-	opacity: 0;
 	position: absolute;
 	right: 20%;
 	top: 50%;
@@ -368,5 +407,210 @@ main {
 	-webkit-animation-delay: 6s;
 	-o-animation-delay: 6s;
 	animation-delay: 6s;
-	z-index: 100;	
+	z-index: 5;
+	opacity: 0;
 }
+
+
+/*    Стили ссылок соцсетей    */
+
+.social-nav {
+	position: absolute;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	bottom: 15px;
+	right: 30px;
+	flex-direction: column;
+}
+
+.social-nav__item {
+	opacity: 0;
+	list-style: none;
+	margin-bottom: 5px;
+	padding: 10px;
+	text-align: center;
+	-webkit-animation: fadeInBottom 0.5s linear forwards;
+	-o-animation: fadeInBottom 0.5s linear forwards;
+	animation: fadeInBottom 0.5s linear forwards;
+}
+
+.social-nav__item:last-child {
+	margin-bottom: 0;
+}
+
+.social-nav__link {
+	padding: 10px;
+	/*border: 3px solid transparent;*/
+	font-size: 1.5em;
+	color: #000000;
+	-webkit-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+.social-nav__link:hover {
+	padding: 10px;
+	/*border: 3px solid #000000;*/
+	background: #000000;
+	color: #ffffff;
+}
+
+.fa {
+	width: 22px;
+	height: 24px;
+}
+
+
+
+
+/*    Стили декоративных элементов    */
+
+
+.deco.big {
+	position: absolute;
+	bottom: -150px;
+	right: 35%;
+	width: 250px;
+	height: 250px;
+	border: 40px solid #000000;
+	-webkit-animation: rotate 40s linear infinite, fadeIn 1s linear forwards;
+	-o-animation: rotate 40s linear infinite, fadeIn 1s linear forwards;
+	animation: rotate 40s linear infinite, fadeIn 1s linear forwards;
+	-webkit-animation-delay: 7s;
+	-o-animation-delay: 7s;
+	animation-delay: 7s;
+	opacity: 0;
+}
+
+.deco.little {
+	position: absolute;
+	left: 5%;
+	top: 40%;
+	width: 50px;
+	height: 50px;
+	border: 2px solid #000000;
+	-webkit-animation: rotate 30s linear infinite, fadeIn 1s linear forwards;
+	-o-animation: rotate 30s linear infinite, fadeIn 1s linear forwards;
+	animation: rotate 30s linear infinite, fadeIn 1s linear forwards;
+	-webkit-animation-delay: 7s;
+	-o-animation-delay: 7s;
+	animation-delay: 7s;
+	opacity: 0;
+}
+
+.fa-times.x2,
+.fa-bars.x2 {
+	display: none;
+	font-size: 28px;
+	cursor: pointer;
+}
+
+
+/*    Медиазапросы    */
+
+@media (max-width: 1280px) {
+	.landing {
+		height: auto !important;
+		display: initial;
+		padding: 100px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	main {
+		position: relative;
+		top: 0;
+		left: 0;
+		margin-top: 100px;
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+		max-width: 700px;
+		z-index: 1001;
+	}
+
+	.sci {
+		z-index: 6;
+		right: 20px;
+	}
+}
+
+@media (max-width: 991px) {
+	.main__title {
+		font-size: 3em;
+	}
+
+	.main__heading {
+		font-size: 1.5em;
+	}
+
+	.deco.big {
+		display: none;
+	}
+
+	.top-nav {
+		position: fixed;
+		background: #ffffff;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: none;
+		z-index: 6;
+		flex-direction: column;
+		justify-content: center;
+		-ms-align-items: center;
+		align-items: center;
+		overflow-y: scroll;
+	}
+
+	.top-nav.show {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+	}	
+
+	.top-nav__item {
+		margin: 10px 0;
+	}
+
+	.top-nav__item:nth-child(1),
+	.top-nav__item:nth-child(2),
+	.top-nav__item:nth-child(3),
+	.top-nav__item:nth-child(4),
+	.top-nav__item:nth-child(5),
+	.top-nav__item:nth-child(6) {
+		-webkit-animation-delay: 0s !important;
+		-o-animation-delay: 0s !important;
+		animation-delay: 0s !important;
+	}
+
+	.fa-bars.x2 {
+		display: block;	
+	}
+
+	.fa-times.x2 {
+		position: absolute;
+		top: 20px;
+		right: 40px;
+		display: block;	
+	}
+}
+
+@media (max-width: 991px) {
+	.landing {
+		padding: 50px 80px 50px 50px;
+	}
+
+	header {
+		padding: 0 50px;
+	}
+}
+
